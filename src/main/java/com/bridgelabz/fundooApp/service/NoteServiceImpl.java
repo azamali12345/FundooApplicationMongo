@@ -17,10 +17,6 @@ import com.bridgelabz.fundooApp.repository.NoteRepository;
 import com.bridgelabz.fundooApp.repository.UserRepository;
 import com.bridgelabz.fundooApp.utility.JWTTokenGenerator;
 
-
-
-
-
 @Service
 public class NoteServiceImpl implements NoteService 
 {
