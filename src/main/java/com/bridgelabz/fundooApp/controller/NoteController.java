@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -47,16 +46,6 @@ public class NoteController
 		return new ResponseEntity<Response>(response, HttpStatus.OK);
 	}
 
-	@DeleteMapping("/note")
-	public ResponseEntity<Response> deleteNote(@RequestParam String 
-			noteId, @RequestParam String token) 
-	{
-		String message = noteService.deleteNote(noteId, token);
-		Response response = new Response(HttpStatus.OK
-				.value(), message, null);
-		return new ResponseEntity<Response>(response, HttpStatus.OK);
-	}
-
 	@GetMapping("/note")
 	public Note getNote(@RequestParam String noteId, 
 			@RequestParam String token) 
@@ -70,50 +59,5 @@ public class NoteController
 	{
 		List<Note> noteList = noteService.getAllNote(token);
 		return noteList;
-	}
-
-	@GetMapping("/getTrash")
-	public List<Note> getTrash(@RequestParam String token) 
-	{
-		List<Note> noteslist = noteService.getTrash(token);
-		return noteslist;
-	}
-
-	@GetMapping("/getArchive")
-	public List<Note> getArchive(@RequestParam String token) 
-	{
-		List<Note> noteslist = noteService.getArchive(token);
-		return noteslist;
-	}
-
-	@GetMapping("/archiveandUnarchive")
-	public ResponseEntity<Response> archiveUnarchiveNote(@RequestParam 
-			String token, @RequestParam String noteId) 
-	{
-		String message = noteService.archiveAndUnarchive(token, noteId);
-		Response response = new Response(HttpStatus.OK
-				.value(), message, null);
-		return new ResponseEntity<Response>(response, HttpStatus.OK);
-
-	}
-
-	@GetMapping("/trashandUntrash")
-	public ResponseEntity<Response> trashAndUntrash(@RequestParam 
-			String token, @RequestParam String noteId) 
-	{
-		String message = noteService.trashAndUntrash(token, noteId);
-		Response response = new Response(HttpStatus.OK
-				.value(), message, null);
-		return new ResponseEntity<Response>(response, HttpStatus.OK);
-	}
-
-	@GetMapping("/pinAndunpin")
-	public ResponseEntity<Response> pinAndUnpin(@RequestParam 
-			String token, @RequestParam String noteId) 
-	{
-		String message = noteService.pinAndUnpin(token, noteId);
-		Response response = new Response(HttpStatus.OK
-				.value(), message, null);
-		return new ResponseEntity<Response>(response, HttpStatus.OK);
 	}
 }

@@ -71,12 +71,10 @@ public class LabelServiceImpl implements LabelService
 				label.setLabelName(labelDto.getLabelName());
 				label.setUpdateTime(LocalDateTime.now());
 				labelRespository.save(label);
-				// return new Response(200, "success", null);
 				return "label updated";
 			} 
 			else 
 			{
-				// return new Response(202, "label id doesnt match", null);
 				throw new LabelException("label id doesnt match");
 			}
 		} 
@@ -98,7 +96,6 @@ public class LabelServiceImpl implements LabelService
 			System.out.println("LabelServiceImpl.deleteLabel()");
 			if (optLabel.isPresent()) 
 			{
-				System.out.println("LabelServiceImpl.deleteLabel()");
 				Label label = optLabel.get();
 				labelRespository.delete(label);
 				return "label deleted";

@@ -13,17 +13,4 @@ public interface NoteService
 	Note getNote(String noteId, String token);
 
 	List<Note> getAllNote(String token);
-	
-	String trashAndUntrash(String token, String noteId);
-	
-	List<Note> getTrash(String token);
-	
-	String deleteNote(String noteId, String token);
-	
-	String archiveAndUnarchive(String token, String noteId);
-	
-	List<Note> getArchive(String token);
-	
-	String pinAndUnpin(String token, String noteId);
-
 }
