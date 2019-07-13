@@ -16,4 +16,8 @@ public interface LabelService
 
 	List<Label> getAllLabel(String token);
 	
+	String addLabelToNote(String token, String labelId, String noteId);
+	
+	String removeLabelFromNote(String token, String labelId, String noteId);
+	
 }

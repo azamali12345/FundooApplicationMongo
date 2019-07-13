@@ -9,8 +9,26 @@ public interface NoteService
 	String createNote(NoteDto noteDto, String token);
 
 	String updateNote(NoteDto noteDto, String noteId, String token);
-
+	
 	Note getNote(String noteId, String token);
-
+	
 	List<Note> getAllNote(String token);
+	
+	String deleteNote(String noteId, String token);
+	
+	String trashAndUntrash(String token, String noteId);
+	
+	List<Note> getTrash(String token);
+	
+	String archiveAndUnarchive(String token, String noteId);
+	
+	List<Note> getArchive(String token);
+	
+	String pinAndUnpin(String token, String noteId);
+	
+	List<Note> sortByName(String token);
+	
+	List<Note> sortByDate(String token);
+	
+	List<Note> sortById(String token);
 }

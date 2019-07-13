@@ -57,14 +57,7 @@ public class LabelController
 				.value(), message, null);
 		return new ResponseEntity<Response>(response, HttpStatus.OK);
 	}
-
-	@GetMapping("/labels")
-	public List<Label> getAllLabel(@RequestParam String token) 
-	{
-		List<Label> labelList = labelService.getAllLabel(token);
-		return labelList;
-	}
-
+	
 	@GetMapping("/label")
 	public Label getLabel(@RequestParam String token, @RequestParam 
 			String labelId)
@@ -72,4 +65,33 @@ public class LabelController
 		Label label = labelService.getLabel(token, labelId);
 		return label;
 	}
+
+	@GetMapping("/labels")
+	public List<Label> getAllLabel(@RequestParam String token) 
+	{
+		List<Label> labelList = labelService.getAllLabel(token);
+		return labelList;
+	}
+	
+	@GetMapping("/addlabel")
+	public ResponseEntity<Response> addLabeltoNote(@RequestParam String token, 
+			@RequestParam String labelId, @RequestParam String noteId)
+	{
+		String message= labelService.addLabelToNote(token, labelId, noteId);
+		Response response = new Response(HttpStatus.OK.value(), message, null);
+		return new ResponseEntity<Response>(response, HttpStatus.OK);
+	}
+	
+	@PostMapping("/removelabel")
+	public ResponseEntity<Response> removeLabelfromNote(@RequestParam String token, 
+			@RequestParam String labelId, String noteId)
+	{
+		String message = labelService.removeLabelFromNote(token, labelId, noteId);
+		Response response =  new Response(HttpStatus.OK.value(), message, null);
+		return new ResponseEntity<Response>(response, HttpStatus.OK);
+	}
+	
+	
+
+	
 }

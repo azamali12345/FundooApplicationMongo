@@ -14,7 +14,9 @@ public class Note
 	private LocalDateTime creationtTime;
 	private LocalDateTime updateTime;
 	private String userId;
-	
+	private boolean isTrash;
+	private boolean isArchive;
+	private boolean isPin;
 	
 	@DBRef
 	private List<Label> labels;
@@ -23,8 +25,8 @@ public class Note
 	{}
 
 	public Note(String noteId, String title, String description, LocalDateTime creationtTime, 
-			LocalDateTime updateTime,
-			String userId, List<Label> labels) 
+			LocalDateTime updateTime,String userId, boolean isTrash, 
+			boolean isArchive, boolean isPin, List<Label> labels) 
 	{
 		super();
 		this.noteId = noteId;
@@ -33,6 +35,9 @@ public class Note
 		this.creationtTime = creationtTime;
 		this.updateTime = updateTime;
 		this.userId = userId;
+		this.isTrash = isTrash;
+		this.isArchive = isArchive;
+		this.isPin = isPin;
 		this.labels = labels;
 	}
 
@@ -71,17 +76,17 @@ public class Note
 		return creationtTime;
 	}
 
-	public void setCreationtTime(LocalDateTime creationtTime)
+	public void setCreationtTime(LocalDateTime creationtTime) 
 	{
 		this.creationtTime = creationtTime;
 	}
 
-	public LocalDateTime getUpdateTime()
+	public LocalDateTime getUpdateTime() 
 	{
 		return updateTime;
 	}
 
-	public void setUpdateTime(LocalDateTime updateTime)
+	public void setUpdateTime(LocalDateTime updateTime) 
 	{
 		this.updateTime = updateTime;
 	}
@@ -96,6 +101,36 @@ public class Note
 		this.userId = userId;
 	}
 
+	public boolean isTrash() 
+	{
+		return isTrash;
+	}
+
+	public void setTrash(boolean isTrash) 
+	{
+		this.isTrash = isTrash;
+	}
+
+	public boolean isArchive()
+	{
+		return isArchive;
+	}
+
+	public void setArchive(boolean isArchive) 
+	{
+		this.isArchive = isArchive;
+	}
+
+	public boolean isPin() 
+	{
+		return isPin;
+	}
+
+	public void setPin(boolean isPin) 
+	{
+		this.isPin = isPin;
+	}
+
 	public List<Label> getLabels() 
 	{
 		return labels;
@@ -107,11 +142,13 @@ public class Note
 	}
 
 	@Override
-	public String toString() 
+	public String toString()
 	{
-		return "Note [noteId=" + noteId + ", title=" + title + ", description=" + description 
-				+ ", creationtTime=" + creationtTime + ", updateTime=" + updateTime 
-				+ ", userId=" + userId + ", labels=" + labels + "]";
+		return "Note [noteId=" + noteId + ", title=" + title + ", description=" 
+				+ description + ", creationtTime="
+				+ creationtTime + ", updateTime=" + updateTime + ", userId=" 
+				+ userId + ", isTrash=" + isTrash+ ", isArchive=" + isArchive 
+				+ ", isPin=" + isPin + ", labels=" + labels + "]";
 	}
 }
 	
