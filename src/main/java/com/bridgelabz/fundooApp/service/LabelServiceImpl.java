@@ -92,7 +92,6 @@ public class LabelServiceImpl implements LabelService
 	{
 		String userId = tokenGenerator.verifyToken(token);
 		Optional<User> optUser = userRepository.findById(userId);
-		System.out.println(userId);
 		if (optUser.isPresent()) 
 		{
 			Optional<Label> optLabel = labelRespository.findById(labelId);
@@ -123,8 +122,7 @@ public class LabelServiceImpl implements LabelService
 		Optional<User> optUser = userRepository.findById(userId);
 		if (optUser.isPresent()) 
 		{
-			Optional<Label> optLabel = labelRespository
-					.findById(labelId);
+			Optional<Label> optLabel = labelRespository.findById(labelId);
 			if (optLabel.isPresent()) 
 			{
 				Label label = optLabel.get();
@@ -228,5 +226,4 @@ public class LabelServiceImpl implements LabelService
 			throw new UserException("User Or Label doent exist");			
 		}
 	}
-	
 }
