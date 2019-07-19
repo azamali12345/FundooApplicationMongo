@@ -33,6 +33,9 @@ public class NoteServiceImpl implements NoteService
 
 	@Autowired
 	private NoteRepository noteRepository;
+	
+	@Autowired
+	private ElasticSearch elasticSearch;
 
 	@Override
 	public String createNote(NoteDto noteDto, String token) 
@@ -373,5 +376,13 @@ public class NoteServiceImpl implements NoteService
 		{
 			throw new UserException("User not found");
 		}
+	}
+	
+	@Override
+	public List<Note> search(String text, String token) 
+	{
+		String userId = tokenGenerator.verifyToken(token);
+		List<Note> noteList = elasticSearch.searchByText(text, userId);
+		return noteList;
 	}
 }

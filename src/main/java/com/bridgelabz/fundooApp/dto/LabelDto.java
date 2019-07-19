@@ -6,9 +6,6 @@ public class LabelDto
 	
 	public LabelDto() {}
 
-	/**
-	 * @param labelName
-	 */
 	public LabelDto(String labelName) 
 	{
 		this.labelName = labelName;

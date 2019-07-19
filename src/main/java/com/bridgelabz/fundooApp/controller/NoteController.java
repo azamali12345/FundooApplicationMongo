@@ -132,4 +132,11 @@ public class NoteController
 		List<Note> noteList = noteService.sortById(token);
 		return noteList;
 	}
+	
+	@GetMapping("/search")
+	public List<Note> searchBytext(@RequestParam String text, @RequestParam String token)
+	{
+		List<Note> noteList =noteService.search(text, token);
+		return noteList;
+	}
 }

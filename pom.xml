@@ -97,6 +97,23 @@
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
 			<version>1.0.1.Final</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>elasticsearch-rest-high-level-client</artifactId>
+		</dependency>
+
+	<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.11.584</version>
+		</dependency>
 
 	</dependencies>
 

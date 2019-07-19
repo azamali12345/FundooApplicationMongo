@@ -90,8 +90,4 @@ public class LabelController
 		Response response =  new Response(HttpStatus.OK.value(), message, null);
 		return new ResponseEntity<Response>(response, HttpStatus.OK);
 	}
-	
-	
-
-	
 }

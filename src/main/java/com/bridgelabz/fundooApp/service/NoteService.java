@@ -31,4 +31,6 @@ public interface NoteService
 	List<Note> sortByDate(String token);
 	
 	List<Note> sortById(String token);
+	
+	List<Note> search(String text,String token);
 }

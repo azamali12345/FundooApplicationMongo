@@ -8,10 +8,6 @@ public class LoginDto
 	public LoginDto()
 	{}
 
-	/**
-	 * @param email
-	 * @param password
-	 */
 	public LoginDto(String email, String password) 
 	{
 		this.email = email;
